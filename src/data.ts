@@ -26,6 +26,26 @@ export const initialData: PortfolioData = {
       ]
     },
     {
+      id: '4',
+      title: 'Project Neon',
+      studio: 'Cyber Studios',
+      role: 'Lead Gameplay Engineer',
+      description: 'Cyberpunk Action RPG with advanced physics.',
+      contributions: [
+        'Architected the core combat system and AI behavior trees',
+        'Optimized custom physics solver for high-speed vehicle chases'
+      ],
+      tech: ['UE5', 'C++', 'Niagara'],
+      youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      type: 'portfolio',
+      longDescription: 'Project Neon is an ambitious open-world action RPG set in a sprawling cyberpunk metropolis. As the Lead Gameplay Engineer, I oversaw the development of the combat and traversal systems. I implemented a highly modular AI system using behavior trees and state trees to create diverse enemy archetypes. Additionally, I worked closely with the technical art team to integrate Niagara-based visual effects that react dynamically to gameplay events, such as bullet impacts and neon light reflections.',
+      images: [
+        'https://picsum.photos/seed/neon1/1200/800',
+        'https://picsum.photos/seed/neon2/1200/800',
+        'https://picsum.photos/seed/neon3/1200/800'
+      ]
+    },
+    {
       id: '2',
       title: 'NEW STATE PUBG Mobile',
       studio: 'KRAFTON',

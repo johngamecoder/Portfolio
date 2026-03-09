@@ -133,18 +133,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit, onDelete, on
 };
 
 const ProjectDetailModal = ({ project, onClose }: { project: Project, onClose: () => void }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-10 overflow-y-auto"
+      className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-10"
+      onClick={onClose}
     >
       <motion.div 
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 50, opacity: 0 }}
-        className="glass-panel w-full max-w-6xl my-auto relative overflow-hidden"
+        className="glass-panel w-full max-w-6xl relative overflow-hidden h-full max-h-[85vh]"
+        onClick={(e) => e.stopPropagation()}
       >
         <button 
           onClick={onClose}
@@ -153,10 +162,10 @@ const ProjectDetailModal = ({ project, onClose }: { project: Project, onClose: (
           <X size={24} />
         </button>
 
-        <div className="grid lg:grid-cols-5 h-full max-h-[90vh]">
+        <div className="grid lg:grid-cols-5 h-full">
           {/* Left Side: Visuals */}
-          <div className="lg:col-span-3 bg-black overflow-y-auto custom-scrollbar">
-            <div className="aspect-video w-full sticky top-0 z-10">
+          <div className="lg:col-span-3 bg-black overflow-y-auto custom-scrollbar h-full">
+            <div className="aspect-video w-full">
               <iframe
                 src={project.youtubeUrl}
                 title={project.title}
@@ -179,7 +188,7 @@ const ProjectDetailModal = ({ project, onClose }: { project: Project, onClose: (
           </div>
 
           {/* Right Side: Info */}
-          <div className="lg:col-span-2 p-8 md:p-12 overflow-y-auto custom-scrollbar border-l border-white/5">
+          <div className="lg:col-span-2 p-8 md:p-12 overflow-y-auto custom-scrollbar border-l border-white/5 h-full">
             <div className="mb-8">
               <Badge className="mb-4">{project.type === 'portfolio' ? 'Featured Portfolio' : 'Professional Project'}</Badge>
               <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-2">{project.title}</h2>

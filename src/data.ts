@@ -18,6 +18,7 @@ export const initialData: PortfolioData = {
       tech: ['UE5', 'C++'],
       youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       type: 'portfolio',
+      period: '2022 - Present',
       longDescription: 'Cinder City is a high-octane MMO RPG that pushes the boundaries of Unreal Engine 5. As a Senior Gameplay Programmer, I was responsible for the core movement and interaction systems. I specialized in creating a seamless transition between on-foot and vehicle gameplay, ensuring that the physics felt responsive and satisfying. I also implemented a complex QTE (Quick Time Event) system for cinematic boss battles, which required precise client-server synchronization to maintain a fair experience in a multiplayer environment.',
       images: [
         'https://picsum.photos/seed/cinder1/1200/800',
@@ -38,6 +39,7 @@ export const initialData: PortfolioData = {
       tech: ['UE5', 'C++', 'Niagara'],
       youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       type: 'portfolio',
+      period: '2021 - 2022',
       longDescription: 'Project Neon is an ambitious open-world action RPG set in a sprawling cyberpunk metropolis. As the Lead Gameplay Engineer, I oversaw the development of the combat and traversal systems. I implemented a highly modular AI system using behavior trees and state trees to create diverse enemy archetypes. Additionally, I worked closely with the technical art team to integrate Niagara-based visual effects that react dynamically to gameplay events, such as bullet impacts and neon light reflections.',
       images: [
         'https://picsum.photos/seed/neon1/1200/800',
@@ -58,6 +60,7 @@ export const initialData: PortfolioData = {
       tech: ['UE4', 'C++'],
       youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       type: 'project',
+      period: '2019 - 2021',
       longDescription: 'Working on NEW STATE PUBG Mobile involved optimizing the battle royale experience for a wide range of mobile devices. My primary focus was on the UI/UX implementation, creating highly customizable widgets that allowed players to tailor their controls. I also worked on world interaction systems, ensuring that elements like automatic doors and interactable weapon cases functioned smoothly across the massive game world.',
       images: [
         'https://picsum.photos/seed/pubgm1/1200/800',
@@ -77,6 +80,7 @@ export const initialData: PortfolioData = {
       tech: ['UE4', 'C++'],
       youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       type: 'project',
+      period: '2018 - 2019',
       longDescription: 'PUBG LITE was designed to bring the core PUBG experience to lower-end PCs. I was responsible for the fundamental interaction mechanics that players use every second, from picking up loot to entering vehicles. I also developed several key UI features, such as the tactical marker system which improved team communication, and the mission tracking system for seasonal events.',
       images: [
         'https://picsum.photos/seed/pubglite1/1200/800',

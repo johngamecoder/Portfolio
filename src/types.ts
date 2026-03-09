@@ -8,6 +8,7 @@ export interface Project {
   tech: string[];
   youtubeUrl: string;
   type: 'portfolio' | 'project';
+  period?: string;
   longDescription?: string;
   images?: string[];
 }

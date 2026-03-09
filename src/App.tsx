@@ -100,9 +100,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit, onDelete, on
               {project.title}
             </h3>
             {project.studio && (
-              <p className="text-gaming-accent text-sm font-mono uppercase tracking-wider">
-                {project.studio} <span className="text-white/20 mx-2">|</span> {project.role}
-              </p>
+              <div className="flex flex-col gap-1">
+                <p className="text-gaming-accent text-sm font-mono uppercase tracking-wider">
+                  {project.studio} <span className="text-white/20 mx-2">|</span> {project.role}
+                </p>
+                {project.period && (
+                  <p className="text-white/30 text-[10px] font-mono uppercase tracking-widest">
+                    {project.period}
+                  </p>
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -193,9 +200,16 @@ const ProjectDetailModal = ({ project, onClose }: { project: Project, onClose: (
               <Badge className="mb-4">{project.type === 'portfolio' ? 'Featured Portfolio' : 'Professional Project'}</Badge>
               <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-2">{project.title}</h2>
               {project.studio && (
-                <p className="text-gaming-accent font-mono uppercase tracking-widest text-sm">
-                  {project.studio} <span className="text-white/20 mx-2">|</span> {project.role}
-                </p>
+                <div className="flex flex-col gap-2">
+                  <p className="text-gaming-accent font-mono uppercase tracking-widest text-sm">
+                    {project.studio} <span className="text-white/20 mx-2">|</span> {project.role}
+                  </p>
+                  {project.period && (
+                    <p className="text-white/40 text-xs font-mono uppercase tracking-[0.2em]">
+                      {project.period}
+                    </p>
+                  )}
+                </div>
               )}
             </div>
 
@@ -509,12 +523,8 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-white/30 text-xs font-mono uppercase tracking-widest">
+      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 flex justify-center items-center text-white/30 text-xs font-mono uppercase tracking-widest">
         <p>© 2026 CHANEUNG HAN. ALL RIGHTS RESERVED.</p>
-        <div className="flex gap-8">
-          <span>BUILT WITH REACT + TAILWIND</span>
-          <span>DEPLOYED ON GITHUB PAGES</span>
-        </div>
       </footer>
 
       {/* Admin Login Modal */}
@@ -697,16 +707,26 @@ const ProjectForm = ({ initialProject, onSave, onCancel }: {
           />
         </div>
         <div className="space-y-2">
-          <label className="text-xs font-mono uppercase tracking-widest text-white/40">Section Type</label>
-          <select 
-            value={project.type}
-            onChange={e => setProject({...project, type: e.target.value as 'portfolio' | 'project'})}
+          <label className="text-xs font-mono uppercase tracking-widest text-white/40">Period (e.g. 2022 - Present)</label>
+          <input 
+            value={project.period || ''}
+            onChange={e => setProject({...project, period: e.target.value})}
             className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
-          >
-            <option value="portfolio">Portfolio (Featured)</option>
-            <option value="project">Project (Experience)</option>
-          </select>
+            placeholder="2022 - Present"
+          />
         </div>
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-xs font-mono uppercase tracking-widest text-white/40">Section Type</label>
+        <select 
+          value={project.type}
+          onChange={e => setProject({...project, type: e.target.value as 'portfolio' | 'project'})}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
+        >
+          <option value="portfolio">Portfolio (Featured)</option>
+          <option value="project">Project (Experience)</option>
+        </select>
       </div>
 
       <div className="space-y-2">

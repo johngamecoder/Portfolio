@@ -237,7 +237,7 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isAddingProject, setIsAddingProject] = useState(false);
+  const [addingType, setAddingType] = useState<'portfolio' | 'project' | null>(null);
 
   // Load from localStorage
   useEffect(() => {
@@ -280,7 +280,7 @@ export default function App() {
       }));
     }
     setEditingProject(null);
-    setIsAddingProject(false);
+    setAddingType(null);
   };
 
   const deleteProject = (id: string) => {
@@ -314,7 +314,7 @@ export default function App() {
           </div>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-mono uppercase tracking-widest">
-            <a href="#work" className="hover:text-gaming-accent transition-colors">Work</a>
+            <a href="#work" className="hover:text-gaming-accent transition-colors">Portfolio</a>
             <a href="#projects" className="hover:text-gaming-accent transition-colors">Projects</a>
             <a href="#skills" className="hover:text-gaming-accent transition-colors">Skills</a>
             <a href="#contact" className="hover:text-gaming-accent transition-colors">Contact</a>
@@ -380,7 +380,7 @@ export default function App() {
                 <button 
                   onClick={() => {
                     setEditingProject(null);
-                    setIsAddingProject(true);
+                    setAddingType('portfolio');
                   }}
                   className="flex items-center gap-2 px-4 py-2 bg-gaming-accent/10 text-gaming-accent border border-gaming-accent/20 rounded-lg hover:bg-gaming-accent/20 transition-all"
                 >
@@ -411,7 +411,7 @@ export default function App() {
               <button 
                 onClick={() => {
                   setEditingProject(null);
-                  setIsAddingProject(true);
+                  setAddingType('project');
                 }}
                 className="flex items-center gap-2 px-4 py-2 bg-gaming-accent/10 text-gaming-accent border border-gaming-accent/20 rounded-lg hover:bg-gaming-accent/20 transition-all"
               >
@@ -562,7 +562,7 @@ export default function App() {
 
       {/* Project Edit Modal */}
       <AnimatePresence>
-        {(editingProject || isAddingProject) && (
+        {(editingProject || addingType) && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -577,7 +577,7 @@ export default function App() {
               <button 
                 onClick={() => {
                   setEditingProject(null);
-                  setIsAddingProject(false);
+                  setAddingType(null);
                 }}
                 className="absolute top-4 right-4 text-white/40 hover:text-white"
               >
@@ -598,14 +598,14 @@ export default function App() {
                   contributions: [''],
                   tech: [''],
                   youtubeUrl: '',
-                  type: 'project',
+                  type: addingType || 'project',
                   longDescription: '',
                   images: []
                 }} 
                 onSave={saveProject}
                 onCancel={() => {
                   setEditingProject(null);
-                  setIsAddingProject(false);
+                  setAddingType(null);
                 }}
               />
             </motion.div>

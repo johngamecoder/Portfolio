@@ -20,7 +20,8 @@ import {
   Gamepad2,
   Code2,
   Cpu,
-  Layers
+  Layers,
+  Globe
 } from 'lucide-react';
 import { initialData } from './data';
 import { Project, PortfolioData, Skill } from './types';
@@ -109,10 +110,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit, onDelete, on
             <h3 className="text-2xl font-bold mb-1 group-hover:text-gaming-accent transition-colors">
               {project.title}
             </h3>
-            {project.studio && (
+            {(project.studio || project.role) && (
               <div className="flex flex-col gap-1">
                 <p className="text-gaming-accent text-sm font-mono uppercase tracking-wider">
-                  {project.studio} <span className="text-white/20 mx-2">|</span> {project.role}
+                  {project.studio}{project.studio && project.role && <span className="text-white/20 mx-2">|</span>}{project.role}
                 </p>
                 {project.period && (
                   <p className="text-white/30 text-[10px] font-mono uppercase tracking-widest">
@@ -182,9 +183,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ project, index, onClick, is
             {project.period}
           </span>
         </div>
-        <p className="text-gaming-accent/80 text-xs font-mono uppercase tracking-widest mb-3">
-          {project.studio} <span className="text-white/20 mx-1">|</span> {project.role}
-        </p>
+        {(project.studio || project.role) && (
+          <p className="text-gaming-accent/80 text-xs font-mono uppercase tracking-widest mb-3">
+            {project.studio}{project.studio && project.role && <span className="text-white/20 mx-1">|</span>}{project.role}
+          </p>
+        )}
         <p className="text-white/60 text-sm mb-4 line-clamp-2">
           {project.description}
         </p>
@@ -279,11 +282,13 @@ const ProjectDetailModal = ({ project, onClose }: { project: Project, onClose: (
             <div className="mb-8">
               <Badge className="mb-4">{project.type === 'portfolio' ? 'Featured Portfolio' : 'Professional Project'}</Badge>
               <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-2">{project.title}</h2>
-              {project.studio && (
+              {(project.studio || project.role || project.period) && (
                 <div className="flex flex-col gap-2">
-                  <p className="text-gaming-accent font-mono uppercase tracking-widest text-sm">
-                    {project.studio} <span className="text-white/20 mx-2">|</span> {project.role}
-                  </p>
+                  {(project.studio || project.role) && (
+                    <p className="text-gaming-accent font-mono uppercase tracking-widest text-sm">
+                      {project.studio}{project.studio && project.role && <span className="text-white/20 mx-2">|</span>}{project.role}
+                    </p>
+                  )}
                   {project.period && (
                     <p className="text-white/40 text-xs font-mono uppercase tracking-[0.2em]">
                       {project.period}
@@ -291,6 +296,19 @@ const ProjectDetailModal = ({ project, onClose }: { project: Project, onClose: (
                   )}
                 </div>
               )}
+              
+              <div className="flex gap-4 mt-6">
+                {project.githubUrl && (
+                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/40 hover:text-gaming-accent transition-colors">
+                    <Github size={14} /> Source Code
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/40 hover:text-gaming-accent transition-colors">
+                    <Globe size={14} /> Live Demo
+                  </a>
+                )}
+              </div>
             </div>
 
             <div className="space-y-8">
@@ -800,7 +818,9 @@ export default function App() {
                   youtubeUrl: '',
                   type: addingType || 'project',
                   longDescription: '',
-                  images: []
+                  images: [],
+                  githubUrl: '',
+                  liveUrl: ''
                 }} 
                 onSave={saveProject}
                 onCancel={() => {
@@ -857,6 +877,18 @@ const ProjectForm = ({ initialProject, onSave, onCancel }: {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="space-y-2">
+        <label className="text-xs font-mono uppercase tracking-widest text-white/40">Section Type</label>
+        <select 
+          value={project.type}
+          onChange={e => setProject({...project, type: e.target.value as 'portfolio' | 'project'})}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
+        >
+          <option value="portfolio">Portfolio (Personal / Side Project)</option>
+          <option value="project">Project (Professional Experience)</option>
+        </select>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="text-xs font-mono uppercase tracking-widest text-white/40">Title</label>
@@ -867,26 +899,29 @@ const ProjectForm = ({ initialProject, onSave, onCancel }: {
             className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-xs font-mono uppercase tracking-widest text-white/40">Studio / Company</label>
-          <input 
-            value={project.studio}
-            onChange={e => setProject({...project, studio: e.target.value})}
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
-          />
-        </div>
+        {project.type === 'project' && (
+          <div className="space-y-2">
+            <label className="text-xs font-mono uppercase tracking-widest text-white/40">Studio / Company</label>
+            <input 
+              value={project.studio}
+              onChange={e => setProject({...project, studio: e.target.value})}
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
+            />
+          </div>
+        )}
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="text-xs font-mono uppercase tracking-widest text-white/40">Role</label>
-          <input 
-            required
-            value={project.role}
-            onChange={e => setProject({...project, role: e.target.value})}
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
-          />
-        </div>
+        {project.type === 'project' && (
+          <div className="space-y-2">
+            <label className="text-xs font-mono uppercase tracking-widest text-white/40">Role</label>
+            <input 
+              value={project.role || ''}
+              onChange={e => setProject({...project, role: e.target.value})}
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
+            />
+          </div>
+        )}
         <div className="space-y-2">
           <label className="text-xs font-mono uppercase tracking-widest text-white/40">Period (e.g. 2022 - Present)</label>
           <input 
@@ -898,16 +933,25 @@ const ProjectForm = ({ initialProject, onSave, onCancel }: {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label className="text-xs font-mono uppercase tracking-widest text-white/40">Section Type</label>
-        <select 
-          value={project.type}
-          onChange={e => setProject({...project, type: e.target.value as 'portfolio' | 'project'})}
-          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
-        >
-          <option value="portfolio">Portfolio (Featured)</option>
-          <option value="project">Project (Experience)</option>
-        </select>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <label className="text-xs font-mono uppercase tracking-widest text-white/40">GitHub URL</label>
+          <input 
+            value={project.githubUrl || ''}
+            onChange={e => setProject({...project, githubUrl: e.target.value})}
+            placeholder="https://github.com/..."
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
+          />
+        </div>
+        <div className="space-y-2">
+          <label className="text-xs font-mono uppercase tracking-widest text-white/40">Live Demo URL</label>
+          <input 
+            value={project.liveUrl || ''}
+            onChange={e => setProject({...project, liveUrl: e.target.value})}
+            placeholder="https://..."
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 focus:border-gaming-accent outline-none"
+          />
+        </div>
       </div>
 
       <div className="space-y-2">

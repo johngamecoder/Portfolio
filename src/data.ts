@@ -28,27 +28,6 @@ export const initialData: PortfolioData = {
       ]
     },
     {
-      id: '4',
-      title: 'Project Neon',
-      studio: 'Cyber Studios',
-      role: 'Lead Gameplay Engineer',
-      description: 'Cyberpunk Action RPG with advanced physics.',
-      contributions: [
-        'Architected the core combat system and AI behavior trees',
-        'Optimized custom physics solver for high-speed vehicle chases'
-      ],
-      tech: ['UE5', 'C++', 'Niagara'],
-      youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      type: 'portfolio',
-      period: '2021 - 2022',
-      longDescription: 'Project Neon is an ambitious open-world action RPG set in a sprawling cyberpunk metropolis. As the Lead Gameplay Engineer, I oversaw the development of the combat and traversal systems. I implemented a highly modular AI system using behavior trees and state trees to create diverse enemy archetypes. Additionally, I worked closely with the technical art team to integrate Niagara-based visual effects that react dynamically to gameplay events, such as bullet impacts and neon light reflections.',
-      images: [
-        'https://picsum.photos/seed/neon1/1200/800',
-        'https://picsum.photos/seed/neon2/1200/800',
-        'https://picsum.photos/seed/neon3/1200/800'
-      ]
-    },
-    {
       id: '2',
       title: 'NEW STATE PUBG Mobile',
       studio: 'KRAFTON',
@@ -86,6 +65,73 @@ export const initialData: PortfolioData = {
       images: [
         'https://picsum.photos/seed/pubglite1/1200/800',
         'https://picsum.photos/seed/pubglite2/1200/800'
+      ]
+    },
+    {
+      id: '5',
+      title: 'Facade Lighting System',
+      studio: 'Personal Graphics Portfolio',
+      role: '',
+      description: 'Custom facade lighting technique implemented by modifying the UE4 rendering pipeline.',
+      contributions: [
+        'Implemented a facade lighting system that projects virtual light from the camera direction onto objects',
+        'Modified the Unreal Engine 4 deferred rendering pipeline to support the custom lighting pass',
+        'Developed a custom global shader to control lighting intensity, color, and direction',
+        'Ensured objects still receive background lighting to maintain natural scene integration'
+      ],
+      tech: ['Unreal Engine 4', 'C++', 'HLSL', 'Global Shader', 'Deferred Rendering'],
+      youtubeUrl: 'https://www.youtube.com/embed/Tgw9y33gITo',
+      type: 'portfolio',
+      period: '2022',
+      longDescription: 'Facade Lighting is a real-time rendering technique designed to enhance object visibility by projecting a virtual light from the camera direction. I implemented this system by modifying the Unreal Engine 4 deferred rendering pipeline and adding a custom lighting pass. A global shader was developed to dynamically control lighting intensity, color, and direction. The system also preserves environmental lighting so that the object does not appear visually disconnected from the scene. This project demonstrates my experience with low-level rendering systems, engine modification, and shader programming within Unreal Engine.',
+      images: [
+        'https://picsum.photos/seed/facade1/1200/800',
+        'https://picsum.photos/seed/facade2/1200/800'
+      ]
+    },
+    {
+      id: '6',
+      title: 'Material Expression "Fit"',
+      studio: 'Personal Tools Portfolio',
+      role: '',
+      description: 'Custom Unreal Engine 4 material expression that remaps a value from one range to another.',
+      contributions: [
+        'Developed a custom Material Expression node for Unreal Engine 4',
+        'Implemented value range remapping based on the Houdini "Fit" function',
+        'Designed the node to support constant folding for shader optimization',
+        'Implemented the feature as a UE4 plugin without modifying the engine source',
+        'Enabled reusable material graph functionality for artists and technical artists'
+      ],
+      tech: ['Unreal Engine 4', 'C++', 'HLSL', 'Material System', 'Shader Compilation'],
+      youtubeUrl: 'https://www.youtube.com/embed/V-47062dBhE',
+      type: 'portfolio',
+      period: '2022',
+      longDescription: 'This project introduces a custom Material Expression node called "Fit" for Unreal Engine 4. The node converts a value from one numerical range to another while preserving its relative ratio. Inspired by the Houdini "Fit" function, the implementation allows artists to easily remap values directly within the material graph. The feature was implemented as a UE4 plugin so it can be integrated without modifying the engine source code. Additionally, the node supports constant folding during shader compilation, allowing the compiler to precompute values when possible and improve runtime shader performance. This project demonstrates experience with Unreal Engine’s material system, shader compilation pipeline, and engine extensibility.',
+      images: [
+        'https://picsum.photos/seed/fit1/1200/800',
+        'https://picsum.photos/seed/fit2/1200/800'
+      ]
+    },
+    {
+      id: '7',
+      title: 'Halloween Defense',
+      studio: 'Personal Gameplay Project',
+      role: '',
+      description: 'A strategic 2D Tower Defense game built with Unity, featuring diverse enemy types and upgradeable defense systems.',
+      contributions: [
+        'Implemented core tower defense mechanics, including grid-based placement and automated targeting systems',
+        'Designed and coded the enemy wave spawning logic and pathfinding system',
+        'Developed a modular upgrade system for various tower types (Single-target, AoE, Slow)',
+        'Managed game state transitions and UI/UX integration for resource management'
+      ],
+      tech: ['Unity', 'C#', '2D Sprite Workflow'],
+      youtubeUrl: 'https://www.youtube.com/embed/Z79Y9v1v43w',
+      type: 'portfolio',
+      period: '2018',
+      longDescription: 'Halloween Defense is a classic tower defense project developed to demonstrate proficiency in Unity and C# during my 2018 job search. The project focuses on the fundamental mechanics of the genre: managing strategic resource allocation to defend against scaling waves of enemies. I focused on creating a clean, object-oriented architecture for the tower modules, allowing for easy expansion of tower types and abilities. The game features a variety of Halloween-themed monsters, each with different speed and health attributes, requiring players to balance different types of defensive units effectively.',
+      images: [
+        'https://picsum.photos/seed/halloween1/1200/800',
+        'https://picsum.photos/seed/halloween2/1200/800'
       ]
     }
   ],

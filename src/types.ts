@@ -2,11 +2,13 @@ export interface Project {
   id: string;
   title: string;
   studio?: string;
-  role: string;
+  role?: string;
   description: string;
   contributions: string[];
   tech: string[];
   youtubeUrl: string;
+  githubUrl?: string;
+  liveUrl?: string;
   type: 'portfolio' | 'project';
   period?: string;
   longDescription?: string;

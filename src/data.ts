@@ -17,7 +17,7 @@ export const initialData: PortfolioData = {
       ],
       tech: ['UE5', 'C++'],
       youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      type: 'portfolio',
+      type: 'project',
       period: '2022 - Present',
       longDescription: 'Cinder City is a high-octane MMO RPG that pushes the boundaries of Unreal Engine 5. As a Senior Gameplay Programmer, I was responsible for the core movement and interaction systems. I specialized in creating a seamless transition between on-foot and vehicle gameplay, ensuring that the physics felt responsive and satisfying. I also implemented a complex QTE (Quick Time Event) system for cinematic boss battles, which required precise client-server synchronization to maintain a fair experience in a multiplayer environment.',
       images: [
@@ -100,6 +100,30 @@ export const initialData: PortfolioData = {
     {
       category: 'Specialties',
       items: ['Gameplay Systems', 'Physics & Vehicles', 'Network Sync', 'UI/UX Implementation']
+    }
+  ],
+  education: [
+    {
+      school: 'Handong Global University',
+      period: '2011.02 - 2018.02',
+      location: 'South Korea',
+      degree: 'Bachelor of Computer Engineering'
+    }
+  ],
+  languages: [
+    {
+      name: 'English',
+      proficiency: 'Full professional proficiency',
+      detail: 'IELTS 6.5'
+    },
+    {
+      name: 'Chinese',
+      proficiency: 'Limited working proficiency',
+      detail: '新HSK 6级'
+    },
+    {
+      name: 'Korean',
+      proficiency: 'Native or bilingual proficiency'
     }
   ],
   contact: {

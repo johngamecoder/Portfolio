@@ -25,6 +25,16 @@ import {
 import { initialData } from './data';
 import { Project, PortfolioData, Skill } from './types';
 
+// --- Helpers ---
+
+const getSortValue = (period?: string) => {
+  if (!period) return 0;
+  const normalized = period.replace(/Present/i, new Date().getFullYear().toString());
+  const years = normalized.match(/\d{4}/g);
+  if (!years) return 0;
+  return Math.max(...years.map(Number));
+};
+
 // --- Components ---
 
 const Badge = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
@@ -136,6 +146,76 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onEdit, onDelete, on
         </div>
       </div>
     </motion.div>
+  );
+};
+
+interface TimelineItemProps {
+  project: Project;
+  index: number;
+  onClick: (p: Project) => void;
+  isAdmin?: boolean;
+  onEdit?: (p: Project) => void;
+  onDelete?: (id: string) => void;
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({ project, index, onClick, isAdmin, onEdit, onDelete }) => {
+  const isEven = index % 2 === 0;
+  
+  return (
+    <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-12 last:mb-0">
+      {/* Dot */}
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gaming-bg border-4 border-gaming-accent shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+        <div className="w-2 h-2 bg-gaming-accent rounded-full animate-pulse" />
+      </div>
+      
+      {/* Content */}
+      <motion.div 
+        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        onClick={() => onClick(project)}
+        className="w-[calc(100%-4rem)] md:w-[45%] glass-panel p-6 hover:border-gaming-accent/30 transition-all cursor-pointer relative"
+      >
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-xl font-bold group-hover:text-gaming-accent transition-colors">{project.title}</h3>
+          <span className="text-xs font-mono text-gaming-accent bg-gaming-accent/10 px-2 py-1 rounded">
+            {project.period}
+          </span>
+        </div>
+        <p className="text-gaming-accent/80 text-xs font-mono uppercase tracking-widest mb-3">
+          {project.studio} <span className="text-white/20 mx-1">|</span> {project.role}
+        </p>
+        <p className="text-white/60 text-sm mb-4 line-clamp-2">
+          {project.description}
+        </p>
+        
+        <div className="flex flex-wrap gap-2">
+          {project.tech.slice(0, 4).map(t => (
+            <span key={t} className="px-2 py-0.5 text-[10px] font-bold bg-white/5 border border-white/10 rounded uppercase tracking-tighter text-white/40">
+              {t}
+            </span>
+          ))}
+          {project.tech.length > 4 && <span className="text-[10px] text-white/20">+{project.tech.length - 4}</span>}
+        </div>
+
+        {isAdmin && (
+          <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <button 
+              onClick={(e) => { e.stopPropagation(); onEdit?.(project); }}
+              className="p-1.5 bg-black/80 rounded hover:bg-gaming-accent hover:text-black transition-colors"
+            >
+              <Edit3 size={14} />
+            </button>
+            <button 
+              onClick={(e) => { e.stopPropagation(); onDelete?.(project.id); }}
+              className="p-1.5 bg-black/80 rounded hover:bg-red-500 transition-colors"
+            >
+              <Trash2 size={14} />
+            </button>
+          </div>
+        )}
+      </motion.div>
+    </div>
   );
 };
 
@@ -316,7 +396,11 @@ export default function App() {
   };
 
   const portfolioItems = useMemo(() => data.projects.filter(p => p.type === 'portfolio'), [data.projects]);
-  const projectItems = useMemo(() => data.projects.filter(p => p.type === 'project'), [data.projects]);
+  const projectItems = useMemo(() => {
+    return data.projects
+      .filter(p => p.type === 'project')
+      .sort((a, b) => getSortValue(b.period) - getSortValue(a.period));
+  }, [data.projects]);
 
   return (
     <div className="min-h-screen relative">
@@ -340,6 +424,7 @@ export default function App() {
             <a href="#work" className="hover:text-gaming-accent transition-colors">Portfolio</a>
             <a href="#projects" className="hover:text-gaming-accent transition-colors">Projects</a>
             <a href="#skills" className="hover:text-gaming-accent transition-colors">Skills</a>
+            <a href="#credentials" className="hover:text-gaming-accent transition-colors">Credentials</a>
             <a href="#contact" className="hover:text-gaming-accent transition-colors">Contact</a>
             <button 
               onClick={() => isAdmin ? setIsAdmin(false) : setShowAdminLogin(true)}
@@ -442,11 +527,13 @@ export default function App() {
               </button>
             )}
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectItems.map(p => (
-              <ProjectCard 
+          
+          <div className="timeline-container">
+            {projectItems.map((p, idx) => (
+              <TimelineItem 
                 key={p.id} 
                 project={p} 
+                index={idx}
                 isAdmin={isAdmin}
                 onEdit={setEditingProject}
                 onDelete={deleteProject}
@@ -482,6 +569,65 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </section>
+
+        {/* Education & Languages Section */}
+        <section id="credentials" className="mb-32 scroll-mt-32">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <SectionTitle title="Education" subtitle="Academic Foundation" />
+              <div className="space-y-8">
+                {data.education.map((edu, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="glass-panel p-8 border-l-4 border-l-gaming-accent"
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold uppercase tracking-tight">{edu.school}</h3>
+                      <span className="text-xs font-mono text-gaming-accent bg-gaming-accent/10 px-2 py-1 rounded">
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p className="text-white/80 font-medium mb-1">{edu.degree}</p>
+                    <p className="text-white/40 text-xs font-mono uppercase tracking-widest">{edu.location}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <SectionTitle title="Languages" subtitle="Global Communication" />
+              <div className="space-y-4">
+                {data.languages.map((lang, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="glass-panel p-6 flex items-center justify-between group hover:border-gaming-accent/20 transition-all"
+                  >
+                    <div>
+                      <h3 className="text-lg font-bold uppercase tracking-wider group-hover:text-gaming-accent transition-colors">
+                        {lang.name}
+                      </h3>
+                      <p className="text-white/50 text-sm">
+                        {lang.proficiency}
+                      </p>
+                    </div>
+                    {lang.detail && (
+                      <span className="text-[10px] font-mono font-bold text-white/30 border border-white/10 px-2 py-1 rounded uppercase tracking-tighter">
+                        {lang.detail}
+                      </span>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

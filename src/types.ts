@@ -35,6 +35,7 @@ export interface PortfolioData {
   name: string;
   title: string;
   workEligibility: string;
+  aboutMe?: string;
   projects: Project[];
   skills: Skill[];
   education: Education[];

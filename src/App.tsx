@@ -421,6 +421,7 @@ export default function App() {
           </div>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-mono uppercase tracking-widest">
+            <a href="#about" className="hover:text-gaming-accent transition-colors">About</a>
             <a href="#work" className="hover:text-gaming-accent transition-colors">Portfolio</a>
             <a href="#projects" className="hover:text-gaming-accent transition-colors">Projects</a>
             <a href="#skills" className="hover:text-gaming-accent transition-colors">Skills</a>
@@ -448,13 +449,13 @@ export default function App() {
             <Badge className="mb-6">Available for Work</Badge>
             <h1 className="text-7xl md:text-9xl font-bold uppercase tracking-tighter leading-[0.9] mb-8">
               Gameplay<br />
-              <span className="text-gaming-accent neon-text">Engineer</span>
+              <span className="text-gaming-accent neon-text">Software Engineer</span>
             </h1>
             
             <div className="grid md:grid-cols-2 gap-12 items-end">
               <div>
                 <p className="text-xl text-white/60 max-w-lg mb-8 leading-relaxed">
-                  Senior Gameplay Programmer specializing in AAA systems, vehicle mechanics, and high-performance C++ development in Unreal Engine.
+                  Software Engineer with experience at PUBG Studio (KRAFTON) and NCSoft, specializing in Unreal Engine C++ gameplay systems, camera systems, and tools development.
                 </p>
                 <div className="flex gap-4">
                   <a href="#work" className="px-8 py-4 bg-gaming-accent text-black font-bold uppercase tracking-widest rounded-lg hover:neon-glow transition-all">
@@ -478,6 +479,40 @@ export default function App() {
             </div>
           </motion.div>
         </section>
+
+        {/* About Me Section */}
+        {data.aboutMe && (
+          <section id="about" className="mb-32 scroll-mt-32">
+            <SectionTitle title="About Me" subtitle="My Journey & Philosophy" />
+            <div className="glass-panel p-8 md:p-12 border-l-4 border-l-gaming-accent">
+              <div className="grid md:grid-cols-3 gap-12">
+                <div className="md:col-span-2">
+                  <div className="space-y-6 text-lg text-white/80 leading-relaxed whitespace-pre-line">
+                    {data.aboutMe}
+                  </div>
+                </div>
+                <div className="space-y-8">
+                  <div className="p-6 bg-white/5 rounded-xl border border-white/10">
+                    <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-gaming-accent mb-4">Core Expertise</h4>
+                    <ul className="space-y-2 text-sm text-white/60">
+                      <li className="flex items-center gap-2"><Check size={14} className="text-gaming-accent" /> Unreal Engine C++</li>
+                      <li className="flex items-center gap-2"><Check size={14} className="text-gaming-accent" /> Gameplay Systems</li>
+                      <li className="flex items-center gap-2"><Check size={14} className="text-gaming-accent" /> Camera & Vehicle Systems</li>
+                      <li className="flex items-center gap-2"><Check size={14} className="text-gaming-accent" /> Tools Development</li>
+                    </ul>
+                  </div>
+                  <div className="p-6 bg-white/5 rounded-xl border border-white/10">
+                    <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-gaming-accent mb-4">Experience</h4>
+                    <ul className="space-y-2 text-sm text-white/60">
+                      <li className="flex items-center gap-2"><Layers size={14} className="text-gaming-accent" /> PUBG Studio (KRAFTON)</li>
+                      <li className="flex items-center gap-2"><Layers size={14} className="text-gaming-accent" /> NCSOFT</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Portfolio Section */}
         {portfolioItems.length > 0 && (

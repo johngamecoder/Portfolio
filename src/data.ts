@@ -7,17 +7,41 @@ export const initialData: PortfolioData = {
   aboutMe: "I'm a Software Engineer specializing in Unreal Engine C++ development with professional experience at PUBG Studio (KRAFTON) and NCSOFT. I've worked on both PC and mobile game development, building gameplay systems and core features for large-scale game projects.\n\nMy work includes developing gameplay mechanics such as implementing and maintaining camera systems, vehicle systems, and creating tools that support efficient game development. I focus on building robust, maintainable systems that enhance the player experience and streamline the development process.",
   projects: [
     {
+      id: '8',
+      title: 'PUBG Clone Project (Team Avengers)',
+      studio: 'Team Gameplay Portfolio (Collaborative Study Group)',
+      role: '',
+      description: 'A dedicated multiplayer PUBG clone project created by four aspiring programmers over 1.5 months of intensive full-time development.',
+      contributions: [
+        'Developed core gameplay features: character movement, interaction systems, and weapon mechanics',
+        'Implemented client-server synchronization for multiplayer gameplay using Boost::asio',
+        'Implemented the 3rd-person camera system to match the original PUBG perspective',
+        'Built the game UI and HUD elements to provide a consistent user experience',
+        'Used std::async for multi-threaded resource loading to ensure smooth performance',
+        'Integrated character meshes, animations, and sound assets into a custom DirectX 9 environment'
+      ],
+      tech: ['C++', 'DirectX 9', 'Boost::asio', 'Multi-threading (std::async)', 'WinAPI'],
+      youtubeUrl: 'https://www.youtube.com/embed/Anu5nLHhWZY',
+      type: 'portfolio',
+      period: '2018',
+      longDescription: 'Team Avengers was formed by four aspiring game programmers who shared a common goal: building a solid portfolio for the industry. For one and a half months, we committed ourselves full-time in a shared workspace to recreate the core mechanics of PUBG as a multiplayer game. My focus was on replicating the player experience, specifically the movement, camera, and UI systems, while utilizing Boost::asio for network communication to synchronize player actions. We chose to build this with DirectX 9 to better understand how game systems work under the hood. This project was a defining experience that taught me how to collaborate effectively under a tight deadline and how to turn complex gameplay ideas into functional code.',
+      images: [
+        'https://raw.githubusercontent.com/harryplusplus/TeamAvengers_PUBG/8381399878ae7e3ee77ea707b4940b0cd5c43c07/PUBG%ED%8F%AC%ED%8F%B4.png',
+        'https://raw.githubusercontent.com/harryplusplus/TeamAvengers_PUBG/8381399878ae7e3ee77ea707b4940b0cd5c43c07/PUBG.png'
+      ]
+    },
+    {
       id: '1',
       title: 'Cinder City',
       studio: 'NCSOFT',
       role: 'Senior Gameplay Programmer',
-      description: 'AAA, MMO RPG, Third-person looter-shooter.',
+      description: 'AAA, MMO RPG, Third-person looter-shooter (Developing).',
       contributions: [
         'Implemented camera control and vehicle gameplay mechanics',
         'Developed QTE-based boss systems and client-side synchronization for multiplayer'
       ],
       tech: ['UE5', 'C++'],
-      youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      youtubeUrl: 'https://www.youtube.com/embed/Kf_fnpAH6DI',
       type: 'project',
       period: '2022 - Present',
       longDescription: 'Cinder City is a high-octane MMO RPG that pushes the boundaries of Unreal Engine 5. As a Senior Gameplay Programmer, I was responsible for the core movement and interaction systems. I specialized in creating a seamless transition between on-foot and vehicle gameplay, ensuring that the physics felt responsive and satisfying. I also implemented a complex QTE (Quick Time Event) system for cinematic boss battles, which required precise client-server synchronization to maintain a fair experience in a multiplayer environment.',
@@ -32,13 +56,13 @@ export const initialData: PortfolioData = {
       title: 'NEW STATE PUBG Mobile',
       studio: 'KRAFTON',
       role: 'Gameplay Programmer',
-      description: 'Mobile Battle Royale (Shipped).',
+      description: 'Mobile, Battle Royale (Shipped).',
       contributions: [
         'Developed customizable UI widgets for mobile usability',
         'Implemented character interaction systems like automatic doors and weapon cases'
       ],
       tech: ['UE4', 'C++'],
-      youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      youtubeUrl: 'https://www.youtube.com/embed/htld_r86pfI',
       type: 'project',
       period: '2019 - 2021',
       longDescription: 'Working on NEW STATE PUBG Mobile involved optimizing the battle royale experience for a wide range of mobile devices. My primary focus was on the UI/UX implementation, creating highly customizable widgets that allowed players to tailor their controls. I also worked on world interaction systems, ensuring that elements like automatic doors and interactable weapon cases functioned smoothly across the massive game world.',
@@ -52,13 +76,13 @@ export const initialData: PortfolioData = {
       title: "PlayerUnknown's Battlegrounds LITE",
       studio: 'PUBG Studios',
       role: 'Gameplay Programmer',
-      description: 'PC Battle Royale (Shipped).',
+      description: 'PC, Battle Royale (Shipped).',
       contributions: [
         'Implemented character interaction mechanics like item pickup and vehicle entry',
         'Developed UI features including tactical markers and mission systems'
       ],
       tech: ['UE4', 'C++'],
-      youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      youtubeUrl: 'https://www.youtube.com/embed/vl4CuBw85f8',
       type: 'project',
       period: '2018 - 2019',
       longDescription: 'PUBG LITE was designed to bring the core PUBG experience to lower-end PCs. I was responsible for the fundamental interaction mechanics that players use every second, from picking up loot to entering vehicles. I also developed several key UI features, such as the tactical marker system which improved team communication, and the mission tracking system for seasonal events.',
@@ -138,7 +162,7 @@ export const initialData: PortfolioData = {
   skills: [
     {
       category: 'Languages',
-      items: ['C++', 'C#', 'Python', 'HLSL']
+      items: ['C++', 'C#', 'Java', 'Python', 'HLSL']
     },
     {
       category: 'Engines & Tools',
@@ -146,7 +170,7 @@ export const initialData: PortfolioData = {
     },
     {
       category: 'Specialties',
-      items: ['Gameplay Systems', 'Physics & Vehicles', 'Network Sync', 'UI/UX Implementation']
+      items: ['Gameplay Systems', 'Camera', 'Character Movement', 'Vehicles', 'Network Sync', 'UI/UX Implementation']
     }
   ],
   education: [

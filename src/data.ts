@@ -4,7 +4,7 @@ export const initialData: PortfolioData = {
   name: "CHANEUNG HAN",
   title: "Gameplay SOFTWARE ENGINEER",
   workEligibility: "Canadian Open Work Permit holder, authorized to work in Canada without employer sponsorship (valid through 2028)",
-  aboutMe: "I'm a Software Engineer specializing in Unreal Engine C++ development with professional experience at PUBG Studio (KRAFTON) and NCSOFT. I've worked on both PC and mobile game development, building gameplay systems and core features for large-scale game projects.\n\nMy work includes developing gameplay mechanics such as implementing and maintaining camera systems, vehicle systems, and creating tools that support efficient game development. I focus on building robust, maintainable systems that enhance the player experience and streamline the development process.",
+  aboutMe: "I'm a Software Engineer specializing in Unreal Engine C++ development with professional experience at PUBG Studio, KRAFTON, and NCSOFT. I've worked on both PC and mobile game development, building gameplay systems and core features for large-scale game projects.\n\nMy work includes developing gameplay mechanics such as implementing and maintaining camera systems, vehicle systems, and creating tools that support efficient game development. I focus on building robust, maintainable systems that enhance the player experience and streamline the development process.\n\nBeyond technical implementation, I pride myself on being a collaborative and constructive teammate. I work closely with design, animation, and engineering teams to bridge the gap between creative vision and technical reality, ensuring that every feature is not only functional but also fun and polished.",
   projects: [
     {
       id: '8',

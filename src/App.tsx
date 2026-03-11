@@ -473,7 +473,7 @@ export default function App() {
             <div className="grid md:grid-cols-2 gap-12 items-end">
               <div>
                 <p className="text-xl text-white/60 max-w-lg mb-8 leading-relaxed">
-                  Software Engineer with experience at PUBG Studio (KRAFTON) and NCSoft, specializing in Unreal Engine C++ gameplay systems, camera systems, and tools development.
+                  Software Engineer with experience at PUBG Studio, KRAFTON, and NCSOFT, specializing in Unreal Engine C++ gameplay systems, camera systems, and tools development.
                 </p>
                 <div className="flex gap-4">
                   <a href="#work" className="px-8 py-4 bg-gaming-accent text-black font-bold uppercase tracking-widest rounded-lg hover:neon-glow transition-all">
@@ -522,7 +522,8 @@ export default function App() {
                   <div className="p-6 bg-white/5 rounded-xl border border-white/10">
                     <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-gaming-accent mb-4">Experience</h4>
                     <ul className="space-y-2 text-sm text-white/60">
-                      <li className="flex items-center gap-2"><Layers size={14} className="text-gaming-accent" /> PUBG Studio (KRAFTON)</li>
+                      <li className="flex items-center gap-2"><Layers size={14} className="text-gaming-accent" /> PUBG Studio</li>
+                      <li className="flex items-center gap-2"><Layers size={14} className="text-gaming-accent" /> KRAFTON</li>
                       <li className="flex items-center gap-2"><Layers size={14} className="text-gaming-accent" /> NCSOFT</li>
                     </ul>
                   </div>

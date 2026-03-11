@@ -41,14 +41,14 @@ export const initialData: PortfolioData = {
         'Developed QTE-based boss systems and client-side synchronization for multiplayer'
       ],
       tech: ['UE5', 'C++'],
-      youtubeUrl: 'https://www.youtube.com/embed/Kf_fnpAH6DI',
+      youtubeUrl: 'https://www.youtube.com/embed/EOYtODWJeHI',
       type: 'project',
       period: '2022 - Present',
       longDescription: 'Cinder City is a high-octane MMO RPG that pushes the boundaries of Unreal Engine 5. As a Senior Gameplay Programmer, I was responsible for the core movement and interaction systems. I specialized in creating a seamless transition between on-foot and vehicle gameplay, ensuring that the physics felt responsive and satisfying. I also implemented a complex QTE (Quick Time Event) system for cinematic boss battles, which required precise client-server synchronization to maintain a fair experience in a multiplayer environment.',
       images: [
-        'https://picsum.photos/seed/cinder1/1200/800',
-        'https://picsum.photos/seed/cinder2/1200/800',
-        'https://picsum.photos/seed/cinder3/1200/800'
+        'https://raw.githubusercontent.com/johngamecoder/Portfolio/22cc3fd2f22b3bc433b017b138db7f5ddbc6ef53/%5BCINDER%20CITY%5D%201.png',
+        'https://raw.githubusercontent.com/johngamecoder/Portfolio/22cc3fd2f22b3bc433b017b138db7f5ddbc6ef53/%5BCINDER%20CITY%5D%202.png',
+        'https://raw.githubusercontent.com/johngamecoder/Portfolio/22cc3fd2f22b3bc433b017b138db7f5ddbc6ef53/%5BCINDER%20CITY%5D%203.png'
       ]
     },
     {
@@ -67,8 +67,9 @@ export const initialData: PortfolioData = {
       period: '2019 - 2021',
       longDescription: 'Working on NEW STATE PUBG Mobile involved optimizing the battle royale experience for a wide range of mobile devices. My primary focus was on the UI/UX implementation, creating highly customizable widgets that allowed players to tailor their controls. I also worked on world interaction systems, ensuring that elements like automatic doors and interactable weapon cases functioned smoothly across the massive game world.',
       images: [
-        'https://picsum.photos/seed/pubgm1/1200/800',
-        'https://picsum.photos/seed/pubgm2/1200/800'
+        'https://user-images.githubusercontent.com/35551084/163410983-2ef27444-9eb5-41d7-8008-180dd3e1513a.JPG',
+        'https://user-images.githubusercontent.com/35551084/163388905-25c51e04-5836-48bb-924f-35cb0531ff25.JPG',
+        'https://user-images.githubusercontent.com/35551084/163411391-d6a82ae8-dc1b-4477-bd91-a6eae9ebbe02.jpg'
       ]
     },
     {
@@ -87,8 +88,9 @@ export const initialData: PortfolioData = {
       period: '2018 - 2019',
       longDescription: 'PUBG LITE was designed to bring the core PUBG experience to lower-end PCs. I was responsible for the fundamental interaction mechanics that players use every second, from picking up loot to entering vehicles. I also developed several key UI features, such as the tactical marker system which improved team communication, and the mission tracking system for seasonal events.',
       images: [
-        'https://picsum.photos/seed/pubglite1/1200/800',
-        'https://picsum.photos/seed/pubglite2/1200/800'
+        'https://user-images.githubusercontent.com/35551084/71656751-f9025e80-2d7f-11ea-860d-b0b5b328c1ce.jpg',
+        'https://user-images.githubusercontent.com/35551084/71655659-1aad1700-2d7b-11ea-9dcd-6ca92152d396.JPG',
+        'https://user-images.githubusercontent.com/35551084/71657363-e178a500-2d82-11ea-9a68-fce944a3249a.jpg'
       ]
     },
     {
@@ -109,8 +111,7 @@ export const initialData: PortfolioData = {
       period: '2022',
       longDescription: 'Facade Lighting is a real-time rendering technique designed to enhance object visibility by projecting a virtual light from the camera direction. I implemented this system by modifying the Unreal Engine 4 deferred rendering pipeline and adding a custom lighting pass. A global shader was developed to dynamically control lighting intensity, color, and direction. The system also preserves environmental lighting so that the object does not appear visually disconnected from the scene. This project demonstrates my experience with low-level rendering systems, engine modification, and shader programming within Unreal Engine.',
       images: [
-        'https://picsum.photos/seed/facade1/1200/800',
-        'https://picsum.photos/seed/facade2/1200/800'
+        'https://raw.githubusercontent.com/johngamecoder/UE4Portfolio/37ba13adb0f48a3c2902c72496966ec18050bb88/Facade%20Lighting.png'
       ]
     },
     {
@@ -132,8 +133,7 @@ export const initialData: PortfolioData = {
       period: '2022',
       longDescription: 'This project introduces a custom Material Expression node called "Fit" for Unreal Engine 4. The node converts a value from one numerical range to another while preserving its relative ratio. Inspired by the Houdini "Fit" function, the implementation allows artists to easily remap values directly within the material graph. The feature was implemented as a UE4 plugin so it can be integrated without modifying the engine source code. Additionally, the node supports constant folding during shader compilation, allowing the compiler to precompute values when possible and improve runtime shader performance. This project demonstrates experience with Unreal Engine’s material system, shader compilation pipeline, and engine extensibility.',
       images: [
-        'https://picsum.photos/seed/fit1/1200/800',
-        'https://picsum.photos/seed/fit2/1200/800'
+        'https://raw.githubusercontent.com/johngamecoder/UE4Portfolio/37ba13adb0f48a3c2902c72496966ec18050bb88/Material%20Expression%20Fit.png'
       ]
     },
     {
@@ -154,8 +154,7 @@ export const initialData: PortfolioData = {
       period: '2018',
       longDescription: 'Halloween Defense is a classic tower defense project developed to demonstrate proficiency in Unity and C# during my 2018 job search. The project focuses on the fundamental mechanics of the genre: managing strategic resource allocation to defend against scaling waves of enemies. I focused on creating a clean, object-oriented architecture for the tower modules, allowing for easy expansion of tower types and abilities. The game features a variety of Halloween-themed monsters, each with different speed and health attributes, requiring players to balance different types of defensive units effectively.',
       images: [
-        'https://picsum.photos/seed/halloween1/1200/800',
-        'https://picsum.photos/seed/halloween2/1200/800'
+        'https://raw.githubusercontent.com/johngamecoder/HalloweenDefense/102141f96b56e89df537e1fe605809b8611cac48/HalloweenDefense.PNG'
       ]
     }
   ],

@@ -165,7 +165,7 @@ export const initialData: PortfolioData = {
     },
     {
       category: 'Engines & Tools',
-      items: ['Unreal Engine 4/5', 'Unity', 'Perforce', 'Git', 'Jira']
+      items: ['Unreal Engine 4/5', 'Unity', 'Motion Builder', 'Maya', '3Ds Max', 'Perforce', 'Git', 'Jira']
     },
     {
       category: 'Specialties',
@@ -175,7 +175,7 @@ export const initialData: PortfolioData = {
   education: [
     {
       school: 'Handong Global University',
-      period: '2011.02 - 2018.02',
+      period: 'Graduated 2018.02',
       location: 'South Korea',
       degree: 'Bachelor of Computer Engineering'
     }

@@ -440,7 +440,7 @@ export default function App() {
           
           <div className="hidden md:flex items-center gap-8 text-sm font-mono uppercase tracking-widest">
             <a href="#about" className="hover:text-gaming-accent transition-colors">About</a>
-            <a href="#work" className="hover:text-gaming-accent transition-colors">Portfolio</a>
+            {/* <a href="#work" className="hover:text-gaming-accent transition-colors">Portfolio</a> */}
             <a href="#projects" className="hover:text-gaming-accent transition-colors">Projects</a>
             <a href="#skills" className="hover:text-gaming-accent transition-colors">Skills</a>
             <a href="#credentials" className="hover:text-gaming-accent transition-colors">Credentials</a>
@@ -476,9 +476,9 @@ export default function App() {
                   Software Engineer with experience at PUBG Studio, KRAFTON, and NCSOFT, specializing in Unreal Engine C++ gameplay systems, camera systems, and tools development.
                 </p>
                 <div className="flex gap-4">
-                  <a href="#work" className="px-8 py-4 bg-gaming-accent text-black font-bold uppercase tracking-widest rounded-lg hover:neon-glow transition-all">
+                  {/* <a href="#work" className="px-8 py-4 bg-gaming-accent text-black font-bold uppercase tracking-widest rounded-lg hover:neon-glow transition-all">
                     View Portfolio
-                  </a>
+                  </a> */}
                   <a href="#contact" className="px-8 py-4 border border-white/10 font-bold uppercase tracking-widest rounded-lg hover:bg-white/5 transition-all">
                     Get in Touch
                   </a>
@@ -534,7 +534,7 @@ export default function App() {
         )}
 
         {/* Portfolio Section */}
-        {portfolioItems.length > 0 && (
+        {/* {portfolioItems.length > 0 && (
           <section id="work" className="mb-32 scroll-mt-32">
             <div className="flex justify-between items-end mb-12">
               <SectionTitle title="Portfolio" subtitle="Featured Showcase" />
@@ -563,7 +563,7 @@ export default function App() {
               ))}
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Projects Section */}
         <section id="projects" className="mb-32 scroll-mt-32">
